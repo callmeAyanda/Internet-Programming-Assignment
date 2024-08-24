@@ -1,0 +1,35 @@
+-- Table to store all user information
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    email VARCHAR(50) UNIQUE,
+    phonenumber VARCHAR(20),
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(255) -- Store hashed passwords
+);
+
+-- Table to log login events
+CREATE TABLE login (
+    login_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Table to log signup events
+CREATE TABLE signup (
+    signup_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    signup_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Table to store user settings or changes
+CREATE TABLE settings (
+    settings_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    setting_name VARCHAR(50),
+    setting_value VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
