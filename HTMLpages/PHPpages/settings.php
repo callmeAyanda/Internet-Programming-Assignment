@@ -1,6 +1,7 @@
 <?php
     include("settings_connectScript.php");
-    //include("form.html");
+    //include("HTMLpages/settings.html");
+
 
     if (isset($_POST['submit'])){
         $updateusername = $_POST['username'];
@@ -17,8 +18,8 @@
 
 
 /*
-        $sql = "INSERT INTO student_info(student_id, first_name, last_name, course_id, email, phone, course_name)
-        VALUES ('$student_id', '$first_name', '$last_name', '$course_id', '$email', '$phone', '$course_name')";
+        $sql = "INSERT INTO settings
+        VALUES ('$updateusername', '$updateemail', '$updatepassword', '$newusername', '$newemail', '$newpassword', '$deleteuser')";
 
         if ($connection->query($sql) === TRUE){
             echo "New record created successfully";

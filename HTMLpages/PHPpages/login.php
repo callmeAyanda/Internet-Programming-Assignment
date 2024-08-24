@@ -1,6 +1,6 @@
 <?php
     include("login_connectScript.php");
-    //include("form.html");
+    //include("HTMLpages/login.html");
 
     if (isset($_POST['submit'])){
         $username = $_POST['username'];
@@ -8,8 +8,8 @@
         $phone = $_POST['password'];
 
 /*
-        $sql = "INSERT INTO student_info(student_id, first_name, last_name, course_id, email, phone, course_name)
-        VALUES ('$student_id', '$first_name', '$last_name', '$course_id', '$email', '$phone', '$course_name')";
+        $sql = "INSERT INTO login
+        VALUES ('$username', '$email', '$phone')";
 
         if ($connection->query($sql) === TRUE){
             echo "New record created successfully";
