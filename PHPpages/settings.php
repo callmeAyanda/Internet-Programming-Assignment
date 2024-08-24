@@ -3,13 +3,17 @@
     //include("form.html");
 
     if (isset($_POST['submit'])){
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
-        $phonenumber = $_POST['phonenumber'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $confirmpassword = $_POST['confirmpassword'];
+        $updateusername = $_POST['username'];
+        $updateemail = $_POST['email'];
+        $updatepassword = $_POST['password'];
+
+//add new user
+        $newusername = $_POST['username'];
+        $newemail = $_POST['email'];
+        $newpassword = $_POST['password'];
+
+//deleting a user
+        $deleteuser = $_POST['delete_username'];
 
 
 /*
