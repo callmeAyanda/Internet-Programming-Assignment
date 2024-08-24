@@ -5,7 +5,7 @@
     if (isset($_POST['submit'])){
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $phone = $_POST['password'];
+        $password = $_POST['password'];
 
 /*
         $sql = "INSERT INTO login
