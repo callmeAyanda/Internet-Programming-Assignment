@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connectScript.php");
+include("profile_connectScript.php");
 
 $user_id = $_SESSION['user_id'];
 

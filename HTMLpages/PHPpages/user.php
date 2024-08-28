@@ -1,5 +1,5 @@
 <?php
-include("connectScript.php");
+include("user_connectScript.php");
 
 $user_id = $_GET['user_id'];
 
