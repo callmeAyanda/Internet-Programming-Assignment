@@ -1,0 +1,103 @@
+/* CSS for Dashboard Page */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Side Panel */
+.side-panel {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.side-panel h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.side-panel a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.side-panel a:hover {
+    background-color: #555;
+}
+
+/* Main Dashboard Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.main-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.user-profile {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.user-profile img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.user-profile h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile p {
+    font-size: 14px;
+    color: #555;
+}
+
+.message-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.message-button:hover {
+    background-color: #45a049;
+}
+
+/* Timeline Section */
+.timeline {
+    margin-top: 20px;
+}
+
+.timeline img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

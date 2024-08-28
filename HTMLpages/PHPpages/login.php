@@ -22,6 +22,12 @@
             $stmt_login->execute();
 
             echo "Login successful.";
+            
+            session_start();
+            $_SESSION['user_id'] = $user_id;
+            header("Location: dashboard.html");
+            exit();
+
         } else {
             echo "Invalid username or password.";
         }
