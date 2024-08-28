@@ -1,5 +1,5 @@
 <?php
-    include("settings_connectScript.php");
+    include("connectScript.php");
     include("HTMLpages/settings.html");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

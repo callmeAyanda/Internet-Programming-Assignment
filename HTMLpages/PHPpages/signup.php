@@ -1,5 +1,5 @@
 <?php
-    include("signup_connectScript.php");
+    include("connectScript.php");
     include("HTMLpages/signUp.html");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

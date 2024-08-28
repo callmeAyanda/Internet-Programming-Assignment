@@ -1,5 +1,5 @@
 <?php
-    include("login_connectScript.php");
+    include("connectScript.php");
     include("HTMLpages/login.html");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
