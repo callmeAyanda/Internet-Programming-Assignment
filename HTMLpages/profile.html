@@ -18,7 +18,8 @@
         <?php while ($post = $posts_result->fetch_assoc()): ?>
             <div class="post">
                 <img src="<?php echo $post['image_path']; ?>" alt="Post Image">
-                <p><?php echo $post['caption']; ?></p>
+                <p>Name: <?php echo htmlspecialchars($user['firstname'] . " " . $user['lastname']); ?></p>
+                <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
             </div>
         <?php endwhile; ?>
     </div>
