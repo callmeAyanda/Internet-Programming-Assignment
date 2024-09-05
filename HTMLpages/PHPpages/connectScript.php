@@ -5,7 +5,6 @@
     $db_username = "root";
     $db_password = "";
     $db_name = "socialapp_db";
-    $connection = "";
 
     try {
         $connection = mysqli_connect($db_server, 
