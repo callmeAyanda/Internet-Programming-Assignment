@@ -10,9 +10,9 @@
             $updatepassword = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
 
             if ($updatepassword) {
-                $sql = "UPDATE users SET username = ?, email = ?, password = ? WHERE username = ?";
+                $sql = "UPDATE users SET username = ?, email = ?, password = ? WHERE username = ?, email = ?, password = ?";
                 $stmt = $connection->prepare($sql);
-                $stmt->bind_param("ssss", $updateusername, $updateemail, $updatepassword, $updateusername);
+                $stmt->bind_param("ssss", $updateusername, $updateemail, $updatepassword);
             } else {
                 $sql = "UPDATE users SET username = ?, email = ? WHERE username = ?";
                 $stmt = $connection->prepare($sql);
@@ -22,7 +22,7 @@
             if ($stmt->execute()) {
                 echo "User settings updated successfully.";
             } else {
-                echo "Error: " . $stmt->error;
+                echo "Incorrect: " . $stmt->error;
             }
             $stmt->close();
         }

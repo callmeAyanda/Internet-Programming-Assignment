@@ -7,11 +7,11 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql = "SELECT user_id, password FROM users WHERE username = ?";
+        $sql = "SELECT * FROM users WHERE username = ?, email = ?, password = ?";
         $stmt = $connection->prepare($sql);
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("sss", $username, $email, $password);
         $stmt->execute();
-        $stmt->bind_result($user_id, $hashed_password);
+        $stmt->bind_result($username, $email, $hashed_password);
         $stmt->fetch();
 
         if (password_verify($password, $hashed_password)) {
@@ -29,7 +29,7 @@
             exit();
 
         } else {
-            echo "Invalid username or password.";
+            echo "Either your username, email or password is incorrect.";
         }
 
         $stmt->close();

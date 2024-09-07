@@ -37,7 +37,7 @@
                 exit();
 
             } else {
-                echo "Error: " . $stmt->error;
+                echo "Incorrect: " . $stmt->error;
             }
 
             $stmt->close();
