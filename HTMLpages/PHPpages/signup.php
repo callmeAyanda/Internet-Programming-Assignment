@@ -1,6 +1,6 @@
 <?php
     include("connectScript.php");
-    include("HTMLpages/signUp.html");
+    //include("HTMLpages/signUp.html");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstname = $_POST['firstname'];
@@ -27,13 +27,12 @@
                 $sql_signup = "INSERT INTO signup (user_id) VALUES (?)";
                 $stmt_signup = $connection->prepare($sql_signup);
                 $stmt_signup->bind_param("i", $user_id);
-                $stmt_signup->execute();
+                $stmt_signup->execute();    
 
-                echo "User signed up successfully.";
 
                 session_start();
                 $_SESSION['user_id'] = $user_id;
-                header("Location: dashboard.html");
+                header("Location: ../HTMLpages/dashboard.html");
                 exit();
 
             } else {
