@@ -5,57 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="CSSpages/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="dashboard">
-        <div class="side-panel">
-            <ul>
-                <li><a href="search.html">Search Users</a></li>
-                <li><a href="profile.html">My Profile</a></li>
-                <li><a href="settings.html">Settings</a></li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <h2>User Timelines</h2>
+    <h1 class="welcome">Welcome to SocialGram</h1>
+    <div class="side-panel">
+        <ul>
+            <li>
+                <a href="search.html">
+                    <i class="fas fa-search"></i>
+                    <span>Search User</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
-            <!-- user profiles -->
-            <div class="user-profile">
-            <!--<a href="user.php?user_id=1">-->
-                <a href="users/user1.html">
-                    <p>User 1</p>
-                    <img src="/images.jpeg" alt="User 1">
-                </a>
+    <div class="container">
+        <h2>What's happening?</h2>
+        
+        <form>
+            <textarea placeholder="What's on your mind?" required></textarea>
+            <button type="button">Post</button>
+        </form>
+        
+        <div class="posts">
+            <h3>Recent Posts</h3>
+            <div class="post">
+                <p>This is my first post!</p>
+                <span class="time">Just now</span>
             </div>
-            <div class="user-profile">
-            <!--<a href="user.php?user_id=2">-->
-                <a href="users/user2.html">
-                    <p>User 2</p>
-                    <img src="/images(1).jpeg" alt="User 2">
-                </a>
-            </div>
-            <div class="user-profile">
-            <!--<a href="user.php?user_id=3">-->
-                <a href="users/user3.html">
-                    <p>User 3</p>
-                    <img src="/images(2).jpeg" alt="User 3">
-                </a>
-            </div>
-            <div class="user-profile">
-            <!--<a href="user.php?user_id=4">-->
-                <a href="users/user4.html">
-                    <p>User 4</p>
-                    <img src="/images(3).jpeg" alt="User 4">
-                </a>
-            </div>
-            <div class="user-profile">
-            <!--<a href="user.php?user_id=5">-->
-                <a href="users/user5.html">
-                    <p>User 5</p>
-                    <img src="/images(4).jpeg" alt="User 5">
-                </a>
-            </div>
-
-                </a>
+            <div class="post">
+                <p>Excited to share my thoughts here!</p>
+                <span class="time">2 minutes ago</span>
             </div>
         </div>
     </div>
