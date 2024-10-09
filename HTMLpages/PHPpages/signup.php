@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $confirmpassword = $_POST['confirmpassword'];
 
         // Validate if passwords match
-        if ($password === $confirmpassword) { // Corrected
+        if ($password === $confirmpassword) {
             // Hash the password for security
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
