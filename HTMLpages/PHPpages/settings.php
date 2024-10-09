@@ -1,8 +1,11 @@
 <?php
     include("connectScript.php");
-    include("HTMLpages/settings.html");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Assume you're getting the current username from the session
+        session_start();
+        $current_username = $_SESSION['username'];
+
         // Update existing user details
         if (!empty($_POST['username']) && !empty($_POST['email'])) {
             $updateusername = $_POST['username'];
@@ -10,19 +13,21 @@
             $updatepassword = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null;
 
             if ($updatepassword) {
-                $sql = "UPDATE users SET username = ?, email = ?, password = ? WHERE username = ?, email = ?, password = ?";
-                $stmt = $connection->prepare($sql);
-                $stmt->bind_param("ssss", $updateusername, $updateemail, $updatepassword);
+                // Update with password
+                $sql = "UPDATE users SET username = ?, email = ?, password = ? WHERE username = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ssss", $updateusername, $updateemail, $updatepassword, $current_username);
             } else {
+                // Update without password
                 $sql = "UPDATE users SET username = ?, email = ? WHERE username = ?";
-                $stmt = $connection->prepare($sql);
-                $stmt->bind_param("sss", $updateusername, $updateemail, $updateusername);
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sss", $updateusername, $updateemail, $current_username);
             }
 
             if ($stmt->execute()) {
                 echo "User settings updated successfully.";
             } else {
-                echo "Incorrect: " . $stmt->error;
+                echo "Error: " . $stmt->error;
             }
             $stmt->close();
         }
@@ -34,7 +39,7 @@
             $newpassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
             $sql_insert = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-            $stmt_insert = $connection->prepare($sql_insert);
+            $stmt_insert = $conn->prepare($sql_insert);
             $stmt_insert->bind_param("sss", $newusername, $newemail, $newpassword);
 
             if ($stmt_insert->execute()) {
@@ -50,7 +55,7 @@
             $deleteuser = $_POST['delete_username'];
 
             $sql_delete = "DELETE FROM users WHERE username = ?";
-            $stmt_delete = $connection->prepare($sql_delete);
+            $stmt_delete = $conn->prepare($sql_delete);
             $stmt_delete->bind_param("s", $deleteuser);
 
             if ($stmt_delete->execute()) {
@@ -60,6 +65,9 @@
             }
             $stmt_delete->close();
         }
-        $connection->close();
+
+        $conn->close(); // Ensure you use $conn instead of $connection
     }
+
+    include("HTMLpages/settings.html"); // Moved to after logic
 ?>

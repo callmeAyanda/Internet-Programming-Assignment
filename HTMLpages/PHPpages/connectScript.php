@@ -4,11 +4,15 @@
     $db_password = "";
     $db_name = "socialapp_db";
 
-    // Create connection
     $connection = mysqli_connect($db_server, $db_username, $db_password, $db_name);
 
-    // Check connection
     if (!$connection) {
-        die("Connection failed: " . mysqli_connect_error());
+        error_log("Connection failed: " . mysqli_connect_error(), 0);
+        die("There was a problem connecting to the database.");
     }
+
+    mysqli_set_charset($connection, "utf8");
+
+    mysqli_close($connection);
 ?>
+
