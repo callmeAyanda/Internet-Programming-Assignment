@@ -57,6 +57,6 @@
             $stmt_login->close();
         }
         
-        $conn->close(); // Correct variable name
+        $conn->close(); 
     }
 ?>
